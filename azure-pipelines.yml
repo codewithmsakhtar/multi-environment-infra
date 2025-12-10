@@ -4,17 +4,25 @@ pool: sagentpool
 variables:
   work_dir: '$(System.DefaultWorkingDirectory)/dev'
 
-steps:
-- task: TerraformTask@5
-  inputs:
-    provider: 'azurerm'
-    command: 'init'
-    workingDirectory: '$(work_dir)'
-    backendServiceArm: 'alok-sc'
-    backendAzureRmStorageAccountName: 'yashstorageaccount9872'
-    backendAzureRmContainerName: 'newcontainer11'
-    backendAzureRmKey: 'multi-env.tfstate'
+resources:
+  repositories:
+    - repository: alok     # Local alias for use in this pipeline
+      type: git                       # Git-based repo
+      name: reuse-template/multi-tera-template   # ProjectName/RepoName
+      ref: refs/heads/main            # Optional: branch
 
+
+steps:
+# - task: TerraformTask@5
+#   inputs:
+#     provider: 'azurerm'
+#     command: 'init'
+#     workingDirectory: '$(work_dir)'
+#     backendServiceArm: 'alok-sc'
+#     backendAzureRmStorageAccountName: 'yashstorageaccount9872'
+#     backendAzureRmContainerName: 'newcontainer11'
+#     backendAzureRmKey: 'multi-env.tfstate'
+- template: init@alok
 - task: TerraformTask@5
   inputs:
     provider: 'azurerm'
