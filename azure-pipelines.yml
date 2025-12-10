@@ -28,5 +28,5 @@ steps:
     provider: 'azurerm'
     command: 'plan'
     workingDirectory: '$(work_dir)'
-    environmentServiceNameAzureRM: 'alok-sc'
+    environmentServiceNameAzureRM: 'new-app-sc'
 
