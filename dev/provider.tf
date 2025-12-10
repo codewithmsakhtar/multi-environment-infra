@@ -6,9 +6,9 @@ terraform {
     }
   }
   backend "azurerm" {
-    resource_group_name  =  "devops-rg"
-    storage_account_name = "stgtestpipipeline55"
-    container_name = "stgpipeline55"
+    resource_group_name  =  "yash-resource-group1"
+    storage_account_name = "yashstorageaccount9872"
+    container_name = "newcontainer11"
     key = "multi-env.tfstate"
     
   }
