@@ -22,11 +22,11 @@ steps:
 #     backendAzureRmStorageAccountName: 'yashstorageaccount9872'
 #     backendAzureRmContainerName: 'newcontainer11'
 #     backendAzureRmKey: 'multi-env.tfstate'
-- template: init@alok
+
 - task: TerraformTask@5
   inputs:
     provider: 'azurerm'
     command: 'plan'
-    workingDirectory: '$(work_dir)'
-    environmentServiceNameAzureRM: 'new-app-sc'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/dev'
+    environmentServiceNameAzureRM: 'connection123'
 
